@@ -18,6 +18,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product: " + id + " " + title + " " + cost + " руб.";
+        return "Product: " + id + " " + title + " " + cost + " руб. \n";
     }
 }
