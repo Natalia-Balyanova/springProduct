@@ -42,25 +42,20 @@ public class Console {
     private static void actionWithCart(Cart cart, Scanner scanner, ProductRepository productRepository) throws Exception{
         // TODO: 05.11.2021  
         while (true) {
-            int scanActionWithCart = scanner.nextInt();
-            switch (scanActionWithCart) {
-                case 10:
-                    System.out.println("Choose the product by id: \n" + productRepository.getProductList());
-                    cart.addProduct(scanner.nextInt());
-                    System.out.println("Choose the action. \n" + stringAction());
-                    break;
-                case 20:
-                    System.out.println("Choose the product by id: \n" + cart.getProductInCart());
-                    cart.delProduct(scanner.nextInt());
-                    System.out.println("Product deleted. Product in the cart: " + cart.getProductInCart());
-                    System.out.println("Choose the action. \n" + stringAction());
-                    break;
-                case 00:
-                    System.out.println("Exit");
-                    break;
-                default:
-                    System.out.println("something wrong. \n" + stringAction());
-                    break;
+            Long scanActionWithCart = scanner.nextLong();
+            if (scanActionWithCart == 10) {
+                System.out.println("Choose the product by id: \n" + productRepository.getProductList());
+                cart.addProduct(scanner.nextLong());
+                System.out.println("Choose the action. \n" + stringAction());
+            } else if (scanActionWithCart == 20) {
+                System.out.println("Choose the product by id: \n" + cart.getProductInCart());
+                cart.delProduct(scanner.nextLong());
+                System.out.println("Product in the cart: " + cart.getProductInCart());
+                System.out.println("Choose the action. \n" + stringAction());
+            } else if (scanActionWithCart == 00) {
+                System.out.println("Exit");
+            } else {
+                System.out.println("something wrong. \n" + stringAction());
             }
         }
     }
